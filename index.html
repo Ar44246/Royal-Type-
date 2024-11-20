@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game-container">
+    <h1>Typing Speed Game</h1>
+    <div id="game-info">
+      <p>Time Left: <span id="time-left">60</span> seconds</p>
+      <p>WPM: <span id="wpm">0</span></p>
+      <p>Score: <span id="score">0</span></p>
+      <p>Click Start to Begin!</p>
+    </div>
+    <button id="start-btn">Start</button>
+    <div id="game-area">
+      <div id="text-display">Loading...</div>
+      <textarea id="typing-box" placeholder="Start typing here..." disabled></textarea>
+      <div id="progress-bar">
+        <div id="progress-bar-fill"></div>
+      </div>
+    </div>
+    <div id="leaderboard-container">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboard"></ul>
+    </div>
+    <div id="ads-container">
+      <p>Sponsored: Check out our amazing product!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1 id="title">Welcome to Typing Test</h1>
+    <p id="description">Test your typing speed with a variety of words!</p>
+
+    <!-- Language Switch Button -->
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('hi')">हिन्दी</button>
+
+    <div id="test">
+      <!-- Typing test content here -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- Google AdSense Ad Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="your-client-id"
+     data-ad-slot="your-ad-slot"
+     data-ad-format="auto"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- Ko-fi button integration -->
+<a href="https://ko-fi.com/yourusername" target="_blank">
+  <img src="https://storage.ko-fi.com/cdn/button/kofi3.png" alt="Buy Me a Coffee" />
+</a>
+<!-- Subscribe Button -->
+<button onclick="subscribe()">Subscribe for Premium Access</button>
+
+<script>
+function subscribe() {
+  alert("Redirecting to payment platform...");
+  // Integrate Stripe or PayPal API for subscription management
+}
+</script>
+<h2>Leaderboard</h2>
+<ul id="leaderboard">
+  <li>User1 - 120 WPM</li>
+  <li>User2 - 115 WPM</li>
+  <li>User3 - 110 WPM</li>
+</ul>
+<!-- Button to trigger modal -->
+<button id="premiumBtn">Upgrade to Premium</button>
+
+<!-- Modal Structure -->
+<div id="premiumModal" class="modal">
+  <div class="modal-content">
+    <h2>Upgrade to Premium</h2>
+    <p>Unlock all premium features by subscribing today!</p>
+    <button id="subscribeBtn">Subscribe Now</button>
+    <button id="closeModalBtn">Close</button>
+  </div>
+</div>
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID_HERE&currency=USD"></script>
+
+<div id="paypal-button-container"></div>
+
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '50.00' // Set your price here
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Transaction completed by ' + details.payer.name.given_name);
+        // You can now process the success of the payment and unlock premium features.
+        processPaymentSuccess();
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
